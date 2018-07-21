@@ -14,8 +14,12 @@ class MotionState{
 		double get_vel2();
 		double get_accel();
 		double get_time();
+		MotionState* extrapolate(double time);
 
 		friend ostream& operator<<(ostream& stream, const MotionState& obj);
+		friend bool operator==(const MotionState& first, const MotionState& second);
+
+		friend bool operator!=(const MotionState& first, const MotionState& second);
 
 	private:
 		double pos = 0;
