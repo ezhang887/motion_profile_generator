@@ -15,7 +15,7 @@ class MotionState{
 		double get_accel();
 		double get_time();
 
-		friend ostream& operator<<(std::ostream& stream, const MotionState& obj);
+		friend ostream& operator<<(ostream& stream, const MotionState& obj);
 
 	private:
 		double pos = 0;
