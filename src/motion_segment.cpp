@@ -10,14 +10,14 @@ MotionSegment::~MotionSegment(){
 	delete final;
 }
 
-MotionState MotionSegment::get_initial(){
+MotionState* MotionSegment::get_initial(){
 	return this->initial;
 }
 
-MotionState MotionSegment::get_final(){
+MotionState* MotionSegment::get_final(){
 	return this->final;
 }
 
 bool MotionSegment::is_valid(){
-			
+	return true;			
 }

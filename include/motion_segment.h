@@ -8,8 +8,8 @@ class MotionSegment{
 	public:
 		MotionSegment(MotionState* initial, MotionState* final);
 		~MotionSegment();
-		MotionState get_initial();
-		MotionState get_final();
+		MotionState* get_initial();
+		MotionState* get_final();
 		bool is_valid();
 		
 		friend ostream& operator<<(ostream& stream, const MotionSegment& obj);
