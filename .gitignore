@@ -4,8 +4,7 @@
 # Compiled Object files
 *.slo
 *.lo
-*.o
-*.obj
+*.o *.obj
 
 # Precompiled Headers
 *.gch
@@ -32,3 +31,4 @@
 *.app
 
 *.swp
+mp_tests
