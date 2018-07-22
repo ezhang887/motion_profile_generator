@@ -68,3 +68,14 @@ TEST(MotionState, equals){
 	delete b;
 	delete c;
 }
+
+TEST(MotionState, coincident){
+	MotionState* a = new MotionState(0.0, 0.0, 0.0, 1.0);
+	MotionState* b = new MotionState(0.0, 0.0, 5.0, 1.0);
+	ASSERT_TRUE(a->coincident(b));
+	delete b;
+	b = new MotionState(1.0, 0.0, 5.0, 1.0);
+	ASSERT_FALSE(a->coincident(b));
+	delete a;
+	delete b;
+}

@@ -32,6 +32,10 @@ bool MotionSegment::is_valid(){
 	return true;			
 }
 
+bool MotionSegment::contains_time(double time){
+	return time >= get_initial()->get_time() && time <= get_final()->get_time();
+}
+
 ostream& operator<<(ostream& stream, const MotionSegment& obj){
 	return stream << *(obj.initial) << "\t" << *(obj.final) << endl;
 }

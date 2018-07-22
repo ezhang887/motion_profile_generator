@@ -15,10 +15,10 @@ class MotionState{
 		double get_accel();
 		double get_time();
 		MotionState* extrapolate(double time);
+		bool coincident(MotionState* other);
 
 		friend ostream& operator<<(ostream& stream, const MotionState& obj);
 		friend bool operator==(const MotionState& first, const MotionState& second);
-
 		friend bool operator!=(const MotionState& first, const MotionState& second);
 
 	private:

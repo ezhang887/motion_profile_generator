@@ -37,6 +37,10 @@ MotionState* MotionState::extrapolate(double time){
 	return new MotionState(new_pos, new_vel, accel, time);
 }
 
+bool MotionState::coincident(MotionState* other){
+	return this->time == other->time && this->pos == other->pos && this->vel == other->vel;
+}
+
 ostream& operator<<(std::ostream& stream, const MotionState& obj){
 	return stream << "T:" << obj.time << " P: " << obj.pos << " V:" << obj.vel << " A:" << obj.accel;
 }
