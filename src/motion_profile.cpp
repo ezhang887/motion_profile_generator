@@ -51,6 +51,9 @@ bool MotionProfile::is_empty(){
 }
 
 bool MotionProfile::is_valid(){
+	if (!segments.at(0)->is_valid()){
+		return false;
+	}
 	for(auto it = segments.begin(), it2 = segments.begin()+1; it2 != segments.end(); it++, it2++){
 		if (!(*it2)->is_valid()){
 			return false;
