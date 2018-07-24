@@ -16,9 +16,9 @@ MotionProfile* generate_profile(MotionState* initial_state, ProfileTarget target
 	//we can accelerate
 	if (initial_state->get_vel() < max_vel){
 		const double accel_time = (max_vel - initial_state->get_vel())/constraints.accel;
+		cout << accel_time << endl;
 		MotionState* segment_start = new MotionState(initial_state->get_pos(), initial_state->get_vel(), constraints.accel, initial_state->get_time());
 		MotionState* segment_end = segment_start->extrapolate(segment_start->get_time() + accel_time);
-		cout << segment_start->get_time() << endl;
 		profile->add_segment(new MotionSegment(segment_start, segment_end));
 		flag = true;
 		delete initial_state;
@@ -30,9 +30,9 @@ MotionProfile* generate_profile(MotionState* initial_state, ProfileTarget target
 	const double cruise_dist = max(0.0, target.pos - initial_state->get_pos() - decel_dist);
 	if (cruise_dist > 0){
 		const double cruise_time = cruise_dist/initial_state->get_vel();
+		cout << cruise_time << endl;
 		MotionState* segment_start = new MotionState(initial_state->get_pos(), initial_state->get_vel(), 0, initial_state->get_time());
 		MotionState* segment_end = segment_start->extrapolate(segment_start->get_time() + cruise_time);
-		cout << segment_start->get_time() << endl;
 		profile->add_segment(new MotionSegment(segment_start, segment_end));
 		if (!flag) delete initial_state;
 		flag = true;
@@ -41,8 +41,8 @@ MotionProfile* generate_profile(MotionState* initial_state, ProfileTarget target
 
 	if (decel_dist > 0){
 		const double decel_time = (initial_state->get_vel() - target.vel)/constraints.accel;	
+		cout << decel_time << endl;
 		MotionState* segment_start = new MotionState(initial_state->get_pos(), initial_state->get_vel(), -constraints.accel, initial_state->get_time());
-		cout << segment_start->get_time() << endl;
 		MotionState* segment_end = segment_start->extrapolate(segment_start->get_time() + decel_time);
 		profile->add_segment(new MotionSegment(segment_start, segment_end));
 		if (!flag) delete initial_state;

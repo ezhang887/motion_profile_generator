@@ -96,7 +96,7 @@ void MotionProfile::to_file(string name){
 void MotionProfile::to_gnuplot_file(string name){
 	ofstream file(name);	
 	file << "X\tY1\tY2\tY3\n";
-	double curr_time = 0;
+	double curr_time = initial_time();
 	int k = 100000;
 	int iter = elapsed_time()*k;
 	for(int i=0; i<iter; i++){
