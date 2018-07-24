@@ -39,7 +39,6 @@ TEST(MotionProfile, triangular_profile){
 	ASSERT_TRUE(m->get_state(3.0) == nullptr);
 
 	ASSERT_FALSE(m->is_empty());
-	cout << *m << endl;
 
 	delete initial;
 	delete final;
@@ -59,7 +58,10 @@ TEST(MotionProfile, trapezoidal_profile){
 	//decelerate from 10 units/sec down to 0 units/sec at -1 units/sec^2 for 10 sec
 	v.push_back(new MotionSegment(new MotionState(150.0, 10.0, -1.0, 30.0), new MotionState(200.0, 0.0, -1.0, 40.0)));
 	
-	MotionProfile* m = new MotionProfile(v);
+	MotionProfile* m = new MotionProfile();
+	for(unsigned int i=0; i<v.size(); i++){
+		m->add_segment(v.at(i));
+	}
 	ASSERT_TRUE(m->is_valid());
 	ASSERT_EQ(3, m->size());
 	ASSERT_EQ(10.0, m->initial_time());
@@ -79,7 +81,6 @@ TEST(MotionProfile, trapezoidal_profile){
 	ASSERT_TRUE(m->get_state(50.0) == nullptr);
 
 	ASSERT_FALSE(m->is_empty());
-	cout << *m << endl;
 
 	delete initial;
 	delete final;

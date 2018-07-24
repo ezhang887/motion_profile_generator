@@ -13,10 +13,6 @@ TEST(MotionState, constructor){
 	delete state;
 }
 
-TEST(MotionState, operator_equals){
-
-}
-
 TEST(MotionState, extrapolate_no_acceleration){
 	MotionState* start = new MotionState(12.0, 10.0, 0.0, 0.0);
 	MotionState* extrapolated = start->extrapolate(1);
