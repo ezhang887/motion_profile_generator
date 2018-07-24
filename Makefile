@@ -18,7 +18,7 @@ $(TARGET): $(OBJ)
 	$(CC) -o $@ $(OBJ) $(LD_FLAGS) 
 
 clean:
-	rm -f $(TARGET) $(OBJ)
+	rm -f $(TARGET) $(OBJ) *.txt
 
 valgrind:
 	make

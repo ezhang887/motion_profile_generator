@@ -90,6 +90,25 @@ void MotionProfile::to_file(string name){
 	for(auto it = segments.begin(); it != segments.end(); it++){
 		file << **it << endl;
 	}
+	file.close();
+}
+
+void MotionProfile::to_gnuplot_file(string name){
+	ofstream file(name);	
+	file << "X\tY1\tY2\tY3\n";
+	double curr_time = 0;
+	int k = 100000;
+	int iter = elapsed_time()*k;
+	for(int i=0; i<iter; i++){
+		MotionState* s = get_state(curr_time);
+		if (s == nullptr){
+			continue;
+		}
+		file << s->get_time() << "\t" << s->get_pos() << "\t" << s->get_vel() << "\t" << s->get_accel() << endl;
+		curr_time += elapsed_time()/k;
+		delete s;
+	}
+	file.close();
 }
 
 ostream& operator<<(ostream& stream, const MotionProfile& obj){

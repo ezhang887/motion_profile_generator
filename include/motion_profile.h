@@ -30,6 +30,7 @@ class MotionProfile{
 		MotionState* final_state();
 		MotionState* get_state(double time);
 		void to_file(string name);
+		void to_gnuplot_file(string name);
 
 		friend ostream& operator<<(ostream& stream, const MotionProfile& obj);
 
