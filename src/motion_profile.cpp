@@ -85,6 +85,13 @@ MotionState* MotionProfile::get_state(double time){
 	return nullptr;
 }
 
+void MotionProfile::to_file(string name){
+	ofstream file(name);
+	for(auto it = segments.begin(); it != segments.end(); it++){
+		file << **it << endl;
+	}
+}
+
 ostream& operator<<(ostream& stream, const MotionProfile& obj){
 	for(auto it = obj.segments.begin(); it != obj.segments.end(); it++){
 		stream << **it << endl;

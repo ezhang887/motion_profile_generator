@@ -12,5 +12,6 @@ TEST(m_p_generator, generate){
 	MotionProfile* p = generate_profile(new MotionState(0,0,0,0), target, constraints);
 	ASSERT_TRUE(p->is_valid());
 	cout << *p << endl;
+	p->to_file("profile1.txt");
 	delete p;
 }

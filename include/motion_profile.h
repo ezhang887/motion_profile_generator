@@ -2,6 +2,7 @@
 #define MOTION_PROFILE_H
 
 #include <ostream>
+#include <fstream>
 #include <vector>
 
 #include "../include/motion_segment.h"
@@ -28,6 +29,7 @@ class MotionProfile{
 		MotionState* initial_state();
 		MotionState* final_state();
 		MotionState* get_state(double time);
+		void to_file(string name);
 
 		friend ostream& operator<<(ostream& stream, const MotionProfile& obj);
 
