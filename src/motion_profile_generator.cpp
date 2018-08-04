@@ -11,14 +11,8 @@ static MotionProfile* generate_inverted_profile(MotionState* initial_state, Prof
     }
     delete profile;
     for(MotionSegment* s : copy){
-        cout << *s << endl; 
-    }
-    for(MotionSegment* s : copy){
         s->get_initial()->invert();
         s->get_final()->invert();
-    }
-    for(MotionSegment* s : copy){
-        cout << *s << endl; 
     }
     MotionProfile* rv = new MotionProfile(copy);
     return rv;

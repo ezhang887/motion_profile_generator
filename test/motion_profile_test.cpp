@@ -81,7 +81,6 @@ TEST(MotionProfile, trapezoidal_profile){
     ASSERT_TRUE(m->get_state(50.0) == nullptr);
 
     ASSERT_FALSE(m->is_empty());
-
     delete initial;
     delete final;
     delete test_state;
