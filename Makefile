@@ -23,3 +23,7 @@ clean:
 valgrind:
 	make
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET)
+
+gdb:
+	make $(TARGET)
+	gdb ./$(TARGET)
