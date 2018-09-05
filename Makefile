@@ -35,7 +35,8 @@ clean:
 
 valgrind:
 	make all
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET) && ./$(TARGET_TEST)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET) 
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET_TEST) 
 
 gdb:
 	make $(TARGET)

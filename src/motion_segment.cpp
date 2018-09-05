@@ -27,8 +27,6 @@ MotionState* MotionSegment::get_final(){
 bool MotionSegment::is_valid(){
     //make sure a segment has constant acceleration
     if (!equals(initial->get_accel(), final->get_accel())){
-            cout << initial->get_accel() << " " << final->get_accel() << endl;
-            cout << "DEBUG" << endl;
             return false;
     }
     MotionState* extrapolated = initial->extrapolate(final->get_time());
@@ -41,6 +39,10 @@ bool MotionSegment::is_valid(){
 
 bool MotionSegment::contains_time(double time){
     return time >= get_initial()->get_time() && time <= get_final()->get_time();
+}
+
+bool MotionSegment::contains_pos(double pos){
+    return pos >= get_initial()->get_pos() && pos <= get_final()->get_pos();
 }
 
 ostream& operator<<(ostream& stream, const MotionSegment& obj){

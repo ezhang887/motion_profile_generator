@@ -30,3 +30,13 @@ TEST(MotionSegment, contains_time){
     ASSERT_FALSE(m->contains_time(-0.01));
     delete m;
 }
+
+TEST(MotionSegment, contains_pos){
+    MotionSegment* m = new MotionSegment(new MotionState(0,0,0,1), new MotionState(10,0,0,10));
+    ASSERT_TRUE(m->contains_pos(0.0));
+    ASSERT_TRUE(m->contains_pos(10.0));
+    ASSERT_TRUE(m->contains_pos(5.0));
+    ASSERT_FALSE(m->contains_time(-0.01));
+    ASSERT_FALSE(m->contains_time(10.00001));
+    delete m;
+}

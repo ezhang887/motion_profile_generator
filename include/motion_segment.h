@@ -13,6 +13,7 @@ class MotionSegment{
         MotionState* get_final();
         bool is_valid();
         bool contains_time(double time);
+        bool contains_pos(double pos);
         
         friend ostream& operator<<(ostream& stream, const MotionSegment& obj);
 
